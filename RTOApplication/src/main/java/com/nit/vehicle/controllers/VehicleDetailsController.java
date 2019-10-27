@@ -66,7 +66,7 @@ public class VehicleDetailsController {
           
 		       Integer oid=vr.getVehicleOwnerDetails().getOwnerId();
 	     	  
-		 
+		
 		    model.addAttribute("vr", vr);
 		    
 		    model.addAttribute("oid", oid);
