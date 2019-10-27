@@ -14,6 +14,7 @@ public class VehicleOwnerDetailsService {
 	    @Autowired
 	   private VehicleOwnerDetailsRepository vehicleOwnerDetailsRepository;
 	    
+	    
 	    public VehicleOwnerDetails saveVehicleOwnerDetails(VehicleOwnerDetails vehicleOwnerDetails)
 	    {
 	    	  return  vehicleOwnerDetailsRepository.save(vehicleOwnerDetails);

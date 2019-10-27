@@ -2,11 +2,13 @@ package com.nit.vehicle.model;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -74,98 +76,118 @@ public class VehicleOwnerDetails {
 	  @Column(name="update_dt")
 	  //@NotEmpty(message= "select your updated date")
 	  private Date updateDate;
+
 	  
-	public VehicleOwnerDetails() {
-		super();
-	}
+	      @OneToOne(mappedBy = "vehicleOwnerDetails")
+	    // @OneToOne(cascade = CascadeType.ALL)
+	  private VehicleOwnerAddress vehicleOwnerAddress;
+	  
+	        @OneToOne(mappedBy = "vehicleOwnerDetails")
+	       // @OneToOne(cascade = CascadeType.ALL)
+	         private VehicleDetails vehicleDetails;
 
-	public Integer getOwnerId() {
-		return ownerId;
-	}
+	        
+	        
+	        
+	         @OneToOne(mappedBy="vehicleOwnerDetails")
+	        private VehicleRegistration vehicleRegistration;
+	         
+	         
+			public VehicleOwnerDetails() {
+				super();
+			}
 
-	public void setOwnerId(Integer ownerId) {
-		this.ownerId = ownerId;
-	}
+			public Integer getOwnerId() {
+				return ownerId;
+			}
 
-	public String getFirstName() {
-		return firstName;
-	}
+			public void setOwnerId(Integer ownerId) {
+				this.ownerId = ownerId;
+			}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
+			public String getFirstName() {
+				return firstName;
+			}
 
-	public String getLastName() {
-		return lastName;
-	}
+			public void setFirstName(String firstName) {
+				this.firstName = firstName;
+			}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+			public String getLastName() {
+				return lastName;
+			}
 
-	public String getGender() {
-		return gender;
-	}
+			public void setLastName(String lastName) {
+				this.lastName = lastName;
+			}
 
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
+			public String getGender() {
+				return gender;
+			}
 
-	public String getEmail() {
-		return email;
-	}
+			public void setGender(String gender) {
+				this.gender = gender;
+			}
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+			public String getEmail() {
+				return email;
+			}
 
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
+			public void setEmail(String email) {
+				this.email = email;
+			}
 
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
+			public String getPhoneNumber() {
+				return phoneNumber;
+			}
 
-	public Date getDateOfBirth() {
-		return dateOfBirth;
-	}
+			public void setPhoneNumber(String phoneNumber) {
+				this.phoneNumber = phoneNumber;
+			}
 
-	public void setDateOfBirth(Date dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
-	}
+			public Date getDateOfBirth() {
+				return dateOfBirth;
+			}
 
-	public String getSsno() {
-		return ssno;
-	}
+			public void setDateOfBirth(Date dateOfBirth) {
+				this.dateOfBirth = dateOfBirth;
+			}
 
-	public void setSsno(String ssno) {
-		this.ssno = ssno;
-	}
+			public String getSsno() {
+				return ssno;
+			}
 
-	public Date getCreateDate() {
-		return createDate;
-	}
+			public void setSsno(String ssno) {
+				this.ssno = ssno;
+			}
 
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
-	}
+			public Date getCreateDate() {
+				return createDate;
+			}
 
-	public Date getUpdateDate() {
-		return updateDate;
-	}
+			public void setCreateDate(Date createDate) {
+				this.createDate = createDate;
+			}
 
-	public void setUpdateDate(Date updateDate) {
-		this.updateDate = updateDate;
-	}
+			public Date getUpdateDate() {
+				return updateDate;
+			}
 
-	@Override
-	public String toString() {
-		return "VehicleOwnerDetails [ownerId=" + ownerId + ", firstName=" + firstName + ", lastName=" + lastName
-				+ ", gender=" + gender + ", email=" + email + ", phoneNumber=" + phoneNumber + ", dateOfBirth="
-				+ dateOfBirth + ", ssno=" + ssno + ", createDate=" + createDate + ", updateDate=" + updateDate + "]";
-	}
+			public void setUpdateDate(Date updateDate) {
+				this.updateDate = updateDate;
+			}
 
-	
+			@Override
+			public String toString() {
+				return "VehicleOwnerDetails [ownerId=" + ownerId + ", firstName=" + firstName + ", lastName=" + lastName
+						+ ", gender=" + gender + ", email=" + email + ", phoneNumber=" + phoneNumber + ", dateOfBirth="
+						+ dateOfBirth + ", ssno=" + ssno + ", createDate=" + createDate + ", updateDate=" + updateDate
+						+ "]";
+			}
+
+
+			 
+			
+	        
 	
 }

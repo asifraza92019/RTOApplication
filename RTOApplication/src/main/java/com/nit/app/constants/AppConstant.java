@@ -14,4 +14,7 @@ public interface AppConstant {
 	public static final String REGISTRATION_SUCCESS= "registration_success";
 	
 	
+	public static final String VEHICLE_REVIEW_FORM =  "vehiclereviewform";
+	
+	
 }

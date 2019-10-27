@@ -6,11 +6,7 @@ public class RegistrationNumber {
 
 	public String generateRegistrationNumber()
 	{
-		
-	       Random rand = new Random(); 
-	  
-	        // Generate random integers in range 0 to 999 
-	        //int rand_int1 = rand.nextInt(1000); 
+	       Random rand = new Random();  
 	        int rand_int2 = rand.nextInt(10);
 	         System.out.println(rand_int2);
 	         String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -31,10 +27,8 @@ public class RegistrationNumber {
             System.out.println(rand_int1);
 	               String vehicleRegistrationNumber = rand_int2+ randomString+rand_int1;
 	               System.out.println(vehicleRegistrationNumber);
-		
-	               return vehicleRegistrationNumber;
-	               
-		
+		         return vehicleRegistrationNumber;
+	      	
 	}
 	
 	

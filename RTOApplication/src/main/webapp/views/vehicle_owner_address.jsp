@@ -79,7 +79,7 @@ $(function() {
 <body>
 
 <h1>Vehicle Owner Address Form</h1>
-<form:form method ="post" action ="/SBFormApp/vehicleowneraddress/savevehicleowneraddress" modelAttribute="vehicleOwnerAddress" id ="vehicleOwnerAddress">
+<form:form method ="post" action ="/SBFormApp/vehicleowneraddress/savevehicleowneraddress?id=${ownerId}" modelAttribute="vehicleOwnerAddress" id ="vehicleOwnerAddress">
  
     <table align ="center">
      <tr>

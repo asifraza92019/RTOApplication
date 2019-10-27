@@ -5,11 +5,13 @@ import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
@@ -51,14 +53,19 @@ public class VehicleDetails {
 		  private Date updateDate;
 
 	    
-	    @OneToOne(cascade = CascadeType.ALL)
-	    @JoinColumn(name="vehicle_owner_id" , referencedColumnName = "vehicle_owner_id")
-	  private VehicleOwnerDetails vehicleOwnerDetails;
-	  
-	  
+	
+	  @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	  @JoinColumn(name="vehicle_owner_id" , 
+	  referencedColumnName ="vehicle_owner_id") 
+	     // @JoinColumn(name="vehicle_owner_id")
+	      private VehicleOwnerDetails vehicleOwnerDetails;
+
+
+
 	public VehicleDetails() {
 		super();
 	}
+
 
 
 	public Integer getVid() {
@@ -66,9 +73,11 @@ public class VehicleDetails {
 	}
 
 
+
 	public void setVid(Integer vid) {
 		this.vid = vid;
 	}
+
 
 
 	public String getVechileType() {
@@ -76,9 +85,11 @@ public class VehicleDetails {
 	}
 
 
+
 	public void setVechileType(String vechileType) {
 		this.vechileType = vechileType;
 	}
+
 
 
 	public String getManufacturingYear() {
@@ -86,9 +97,11 @@ public class VehicleDetails {
 	}
 
 
+
 	public void setManufacturingYear(String manufacturingYear) {
 		this.manufacturingYear = manufacturingYear;
 	}
+
 
 
 	public String getVehicleBrand() {
@@ -96,9 +109,11 @@ public class VehicleDetails {
 	}
 
 
+
 	public void setVehicleBrand(String vehicleBrand) {
 		this.vehicleBrand = vehicleBrand;
 	}
+
 
 
 	public Date getCreateDate() {
@@ -106,9 +121,11 @@ public class VehicleDetails {
 	}
 
 
+
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
 	}
+
 
 
 	public Date getUpdateDate() {
@@ -116,9 +133,11 @@ public class VehicleDetails {
 	}
 
 
+
 	public void setUpdateDate(Date updateDate) {
 		this.updateDate = updateDate;
 	}
+
 
 
 	public VehicleOwnerDetails getVehicleOwnerDetails() {
@@ -126,9 +145,11 @@ public class VehicleDetails {
 	}
 
 
+
 	public void setVehicleOwnerDetails(VehicleOwnerDetails vehicleOwnerDetails) {
 		this.vehicleOwnerDetails = vehicleOwnerDetails;
 	}
+
 
 
 	@Override
@@ -137,6 +158,7 @@ public class VehicleDetails {
 				+ manufacturingYear + ", vehicleBrand=" + vehicleBrand + ", createDate=" + createDate + ", updateDate="
 				+ updateDate + ", vehicleOwnerDetails=" + vehicleOwnerDetails + "]";
 	}
-
-	
+	 
+	 
+	  
 }

@@ -8,6 +8,11 @@
 </head>
 <body>
     <h1>Your are Successfully register your vehicle registration number is 
-   ${vehicleRegistration.vehicleRegistrationNumber}</h1>
+   ${vr.vehicleRegistrationNumber}</h1>
+      
+       ${oid}
+   
+   <br>
+        <a href= "reviewform/review?oid=${oid}">Review</a>
 </body>
 </html>

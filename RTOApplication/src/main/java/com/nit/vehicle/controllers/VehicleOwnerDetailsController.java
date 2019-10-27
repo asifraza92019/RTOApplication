@@ -38,8 +38,15 @@ public class VehicleOwnerDetailsController {
 	      {
 	    VehicleOwnerDetails vod=	
 	    		vehicleOwnerDetailsService.saveVehicleOwnerDetails(vehicleOwnerDetails);
+	    
+	           Integer ownerId=  vod.getOwnerId();
 	    	  System.out.println(vod);
 	    	  
+	    	      // vod.getOwnerId()
+	    	  
+	    	    System.out.println(ownerId);
+	    	     
+	    	         model.addAttribute("ownerId", ownerId);
 	    	  VehicleOwnerAddress  vehicleOwnerAddress = new VehicleOwnerAddress();
 	    	  model.addAttribute("vehicleOwnerAddress", vehicleOwnerAddress);
 	    	  

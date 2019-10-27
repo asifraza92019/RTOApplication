@@ -82,7 +82,7 @@
 
  <h1>this is vehicle detail registration form </h1>
  
- <form:form method ="post"  action="/SBFormApp/vehicledetail/savevehicledetails" modelAttribute="vehicleDetails" id="vehicleDetails">
+ <form:form method ="post"  action="/SBFormApp/vehicledetail/savevehicledetails?ownerId=${vid}" modelAttribute="vehicleDetails" id="vehicleDetails">
   
    <table align= "center">
      <tr>

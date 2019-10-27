@@ -2,7 +2,7 @@ package com.nit.vehicle.model;
 
 import java.util.Date;
 
-public class Vehicle {
+public class VehicleReview {
  
 	private Integer id;
 	private String firstName;
@@ -12,8 +12,7 @@ public class Vehicle {
 	private String  phoneNumber;
 	private  Date  dob;
 	private Date createDate;
-	private Date updateDate;
-	
+	private Date updateDate;	
 	private String  ssno;
 	private String   vehicleType;
 	private String  manufacturingYear;
@@ -22,8 +21,9 @@ public class Vehicle {
 	private String streetName;
 	private String  city;
 	private String zipcode;
+	private String  registrationNo;
 	
-	public Vehicle() {
+	public VehicleReview() {
 		super();
 	}
 
@@ -163,15 +163,23 @@ public class Vehicle {
 		this.zipcode = zipcode;
 	}
 
+	public String getRegistrationNo() {
+		return registrationNo;
+	}
+
+	public void setRegistrationNo(String registrationNo) {
+		this.registrationNo = registrationNo;
+	}
+
 	@Override
 	public String toString() {
 		return "Vehicle [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", gender=" + gender
 				+ ", email=" + email + ", phoneNumber=" + phoneNumber + ", dob=" + dob + ", createDate=" + createDate
 				+ ", updateDate=" + updateDate + ", ssno=" + ssno + ", vehicleType=" + vehicleType
 				+ ", manufacturingYear=" + manufacturingYear + ", brandName=" + brandName + ", hno=" + hno
-				+ ", streetName=" + streetName + ", city=" + city + ", zipcode=" + zipcode + "]";
+				+ ", streetName=" + streetName + ", city=" + city + ", zipcode=" + zipcode + ", registrationNo="
+				+ registrationNo + "]";
 	}
-	
-	
-    	
+
+	    	
 }

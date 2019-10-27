@@ -136,8 +136,8 @@
           
           <tr>
            <td>Gender</td>
-           <td><form:radiobutton path="gender"/>Male</td>
-           <td><form:radiobutton path="gender"/>Female</td>
+           <td><form:radiobutton path="gender" value ="male"/>Male</td>
+           <td><form:radiobutton path="gender" value="female"/>Female</td>
            
           </tr>
           

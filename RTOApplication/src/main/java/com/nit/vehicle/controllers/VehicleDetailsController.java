@@ -6,12 +6,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.nit.app.constants.AppConstant;
 import com.nit.generator.RegistrationNumber;
 import com.nit.vehicle.model.VehicleDetails;
+import com.nit.vehicle.model.VehicleOwnerDetails;
 import com.nit.vehicle.model.VehicleRegistration;
 import com.nit.vehicle.services.VehicleDetailsService;
+import com.nit.vehicle.services.VehicleOwnerDetailsService;
 import com.nit.vehicle.services.VehicleRegistrationService;
 
 @Controller
@@ -25,10 +28,19 @@ public class VehicleDetailsController {
 	 @Autowired
 	 private VehicleRegistrationService vehicleRegistrationService;
 	 
+	 @Autowired
+	 private VehicleOwnerDetailsService vehicleOwnerDetailsService;
+	 
 	 @RequestMapping(value ="/savevehicledetails", method= RequestMethod.POST)
-	public String saveVehicleDetailsService(Model model, @ModelAttribute("vehicleDetails") VehicleDetails vehicleDetails)
+	public String saveVehicleDetailsService(Model model, @ModelAttribute("vehicleDetails") VehicleDetails vehicleDetails,
+			@RequestParam("ownerId") Integer ownerId)
 	{
 		
+		 
+	   VehicleOwnerDetails vod=	 vehicleOwnerDetailsService.getVehicleOwnerDetailsById(ownerId);
+		      
+	   vehicleDetails.setVehicleOwnerDetails(vod);
+		 
 		 VehicleDetails vehicleDetails1= vehicleDetailsService.saveVehicleDetails(vehicleDetails);
 		 
 		 System.out.println(vehicleDetails1);
@@ -38,6 +50,12 @@ public class VehicleDetailsController {
 		 System.out.println(rno);  
 		 
 		 VehicleRegistration vehicleRegistration = new VehicleRegistration();
+		     vehicleRegistration.setCreateDate(vod.getCreateDate());
+		     vehicleRegistration.setUpdateDate(vod.getUpdateDate());
+		     vehicleRegistration.setRegDate(vod.getCreateDate());
+		     vehicleRegistration.setRegCenter("California");
+		     vehicleRegistration.setVehicleOwnerDetails(vod);
+		     
 		 vehicleRegistration.setVehicleRegistrationNumber(rno);
 		 
 		 
@@ -45,10 +63,13 @@ public class VehicleDetailsController {
 		 VehicleRegistration  vr = vehicleRegistrationService.saveRegistrationNumber(vehicleRegistration);
 		 
 		 System.out.println(vr);
-
-	     	
+          
+		       Integer oid=vr.getVehicleOwnerDetails().getOwnerId();
+	     	  
 		 
-		    model.addAttribute("vehicleRegistration", vehicleRegistration);;
+		    model.addAttribute("vr", vr);
+		    
+		    model.addAttribute("oid", oid);
 		    return AppConstant.REGISTRATION_SUCCESS;
 	}
 	 
